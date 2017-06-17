@@ -1,0 +1,20 @@
+insert into blogger (username, password, first_name, last_name, email) values ('abc', 'password', 'abc', 'abc', 'abc@xyz.com');
+insert into blogger (username, password, first_name, last_name, email) values ('efg', 'password', 'efg', 'efg', 'efg@xyz.com');
+insert into blogger (username, password, first_name, last_name,  email) values ('opq', 'password', 'opq', 'opq', 'opq@xyz.com');
+insert into blogger (username, password, first_name, last_name,  email) values ('rst', 'password', 'rst', 'rst', 'rst@xyz.com');
+
+insert into blog (blogger, message, created_at) values (1, 'This is a test message', '2017-06-09 22:00:00Z');
+insert into blog (blogger, message, created_at) values (1, 'This is another test message', '2017-06-09 22:10:00Z');
+insert into blog (blogger, message, created_at) values (1, 'This is a third test message', '2017-07-04 23:30:00Z');
+insert into blog (blogger, message, created_at) values (2, 'Hello from efg!', '2017-03-25 12:15:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Hello from rst!', '2017-03-25 12:15:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Hello again from rst!', '2017-03-25 12:25:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Hola from rst!', '2017-03-25 12:35:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Buenos Dias from rst!', '2017-03-25 12:45:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Ni Hao from rst!', '2017-03-25 12:55:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Guten Tag from rst!', '2017-03-25 13:05:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Konnichi wa from rst!', '2017-03-25 13:15:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Buon giorno from rst!', '2017-03-25 13:25:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Bonjour from rst!', '2017-03-25 13:35:00Z');
+insert into blog (blogger, message, created_at) values (4, 'Aloha from rst!', '2017-03-25 13:45:00Z');
+insert into blog (blogger, message, created_at) values (4, 'God dag from rst!', '2017-03-25 13:55:00Z');

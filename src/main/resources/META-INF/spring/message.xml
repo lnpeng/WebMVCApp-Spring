@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.2.xsd
+		http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <amq:queue id="blogQueue" physicalName="blog.alert.queue" />
+
+    <amq:connectionFactory id="connectionFactory"
+                           brokerURL="tcp://localhost:61616"/>
+
+    <bean id="blogHandler" class="microblogger.alert.BlogAlertHandler" />
+
+    <jms:listener-container message-converter="converter">
+        <jms:listener destination="blog.alert.queue"
+                      ref="blogHandler"
+                      method="handleBlogAlert" />
+    </jms:listener-container>
+
+    <bean id="converter" class="org.springframework.jms.support.converter.MappingJackson2MessageConverter"
+                        p:targetType="TEXT"
+                        p:typeIdPropertyName="object-type" />
+
+    <bean id="jmsTemplate"
+          class="org.springframework.jms.core.JmsTemplate"
+          c:_-ref="connectionFactory"
+          p:defaultDestinationName="blog.alert.queue"
+          p:messageConverter-ref="converter" />
+
+    <bean id="alertService" class="microblogger.alert.AlertServiceImpl"
+          c:_-ref="jmsTemplate" />
+
+</beans>
